@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp", "FirstApp\FirstApp.csproj", "{07C9B021-E523-4FC9-A7D7-D9350B668CE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstBodyTrackingApp", "FirstBodyTrackingApp\FirstBodyTrackingApp.csproj", "{859C7B67-AC01-4AC2-9B28-69D7F3F88BBF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaptureViewer", "CaptureViewer\CaptureViewer.csproj", "{553038CE-E728-4E0C-BA8D-4DE97339E7AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07C9B021-E523-4FC9-A7D7-D9350B668CE4}.Debug|x64.ActiveCfg = Debug|x64
+		{07C9B021-E523-4FC9-A7D7-D9350B668CE4}.Debug|x64.Build.0 = Debug|x64
+		{07C9B021-E523-4FC9-A7D7-D9350B668CE4}.Release|x64.ActiveCfg = Release|x64
+		{07C9B021-E523-4FC9-A7D7-D9350B668CE4}.Release|x64.Build.0 = Release|x64
+		{859C7B67-AC01-4AC2-9B28-69D7F3F88BBF}.Debug|x64.ActiveCfg = Debug|x64
+		{859C7B67-AC01-4AC2-9B28-69D7F3F88BBF}.Debug|x64.Build.0 = Debug|x64
+		{859C7B67-AC01-4AC2-9B28-69D7F3F88BBF}.Release|x64.ActiveCfg = Release|Any CPU
+		{859C7B67-AC01-4AC2-9B28-69D7F3F88BBF}.Release|x64.Build.0 = Release|Any CPU
+		{553038CE-E728-4E0C-BA8D-4DE97339E7AA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{553038CE-E728-4E0C-BA8D-4DE97339E7AA}.Debug|x64.Build.0 = Debug|Any CPU
+		{553038CE-E728-4E0C-BA8D-4DE97339E7AA}.Release|x64.ActiveCfg = Release|Any CPU
+		{553038CE-E728-4E0C-BA8D-4DE97339E7AA}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
