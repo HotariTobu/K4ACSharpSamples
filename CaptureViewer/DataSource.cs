@@ -8,7 +8,7 @@ using System.Windows.Media.Imaging;
 
 namespace CaptureViewer
 {
-    internal class DataSource
+    internal class DataSource : DependencyObject
     {
         private WriteableBitmap? _captureImage;
 

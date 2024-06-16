@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
-        <Binding Source="{local:DataSource}"/>
+        <local:DataSource/>
     </Window.DataContext>
     <Grid>
-        <MediaElement></MediaElement>
+        <Image Source="{Binding CaptureImage}" Stretch="UniformToFill"/>
     </Grid>
 </Window>
