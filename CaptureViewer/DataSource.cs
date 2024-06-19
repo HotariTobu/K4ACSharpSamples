@@ -5,19 +5,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using SharedWPF;
 
 namespace CaptureViewer
 {
-    internal class DataSource : DependencyObject
+    internal class DataSource : ViewModelBase
     {
-        private WriteableBitmap? _captureImage;
+        #region == CaptureImage ==
 
+        private WriteableBitmap? _captureImage;
         public WriteableBitmap? CaptureImage
         {
             get => _captureImage;
-            set => _captureImage = value;
+            set
+            {
+                if (_captureImage != value)
+                {
+                    _captureImage = value;
+                    RaisePropertyChanged(nameof(CaptureImage));
+                }
+            }
         }
 
-        public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register("CaptureImage", typeof(WriteableBitmap), typeof(DataSource), new PropertyMetadata(null));
+        #endregion
+        #region == Timestamp ==
+
+        private string? _timestamp;
+        public string? Timestamp
+        {
+            get => _timestamp;
+            set
+            {
+                if (_timestamp != value)
+                {
+                    _timestamp = value;
+                    RaisePropertyChanged(nameof(Timestamp));
+                }
+            }
+        }
+
+        #endregion
     }
 }

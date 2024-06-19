@@ -10,6 +10,11 @@
         <local:DataSource/>
     </Window.DataContext>
     <Grid>
-        <Image Source="{Binding CaptureImage}" Stretch="UniformToFill"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Image Source="{Binding CaptureImage}" Stretch="Uniform"/>
+        <TextBlock Text="{Binding Timestamp}" Grid.Row="1"/>
     </Grid>
 </Window>

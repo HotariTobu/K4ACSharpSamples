@@ -53,25 +53,25 @@ public partial class MainWindow : Window
         _timer = new();
         _timer.Tick += new System.EventHandler(_timerTick);
         _timer.Interval = TimeSpan.FromMilliseconds(50);
-        _timer.Start();
     }
 
     ~MainWindow()
     {
         _device.Dispose();
-        _timer.Stop();
     }
 
     protected override void OnActivated(EventArgs e)
     {
         base.OnActivated(e);
         _device.StartCameras(_deviceConfig);
+        _timer.Start();
     }
 
     protected override void OnDeactivated(EventArgs e)
     {
         base.OnDeactivated(e);
         _device.StopCameras();
+        _timer.Stop();
     }
 
     private unsafe void _timerTick(object? sender, EventArgs e)
@@ -84,6 +84,7 @@ public partial class MainWindow : Window
         using var memoryHandle = image.Memory.Pin();
         var buffer = new IntPtr(memoryHandle.Pointer);
 
-        _dataSource.CaptureImage?.WritePixels(rect, buffer, image.StrideBytes, 0);
+        _dataSource.CaptureImage?.WritePixels(rect, buffer, (int)image.Size, image.StrideBytes);
+        _dataSource.Timestamp = image.DeviceTimestamp.ToString();
     }
 }
