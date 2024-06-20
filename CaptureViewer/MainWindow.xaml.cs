@@ -55,8 +55,9 @@ public partial class MainWindow : Window
         _timer.Interval = TimeSpan.FromMilliseconds(50);
     }
 
-    ~MainWindow()
+    protected override void OnClosed(EventArgs e)
     {
+        base.OnClosed(e);
         _device.Dispose();
     }
 
