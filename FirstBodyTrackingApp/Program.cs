@@ -23,8 +23,8 @@ using (var device = Device.Open())
 
     var calibration = device.GetCalibration(deviceConfig.DepthMode, deviceConfig.ColorResolution);
 
-    var tackerConfig = TrackerConfiguration.Default;
-    using (var tracker = Tracker.Create(calibration, tackerConfig))
+    var trackerConfig = TrackerConfiguration.Default;
+    using (var tracker = Tracker.Create(calibration, trackerConfig))
     {
         using (var capture = device.GetCapture())
         {
