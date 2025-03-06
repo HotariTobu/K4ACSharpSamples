@@ -1,6 +1,8 @@
-﻿using Microsoft.Azure.Kinect.Sensor;
+﻿// using Microsoft.Azure.Kinect.Sensor;
+using K4AdotNet.Sensor;
 
-var deviceCount = Device.GetInstalledCount();
+// var deviceCount = Device.GetInstalledCount();
+var deviceCount = Device.InstalledCount;
 Console.WriteLine($"Device Count: {deviceCount}");
 
 if (deviceCount == 0)
@@ -10,13 +12,15 @@ if (deviceCount == 0)
 
 using (var device = Device.Open())
 {
-    Console.WriteLine($"Serial Number: {device.SerialNum}");
+    // Console.WriteLine($"Serial Number: {device.SerialNum}");
+    Console.WriteLine($"Serial Number: {device.SerialNumber}");
 
     var deviceConfig = new DeviceConfiguration
     {
-        CameraFPS = FPS.FPS30,
-        ColorFormat = ImageFormat.ColorBGRA32,
-        ColorResolution = ColorResolution.R1080p
+        // CameraFPS = FPS.FPS30,
+        // ColorFormat = ImageFormat.ColorBGRA32,
+        DepthMode = DepthMode.PassiveIR,
+        ColorResolution = ColorResolution.Off
     };
 
     device.StartCameras(deviceConfig);

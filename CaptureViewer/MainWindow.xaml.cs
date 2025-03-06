@@ -11,7 +11,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-using Microsoft.Azure.Kinect.Sensor;
+// using Microsoft.Azure.Kinect.Sensor;
+using K4AdotNet.Sensor;
 
 namespace CaptureViewer;
 
@@ -45,8 +46,9 @@ public partial class MainWindow : Window
         _device = Device.Open();
         _deviceConfig = new DeviceConfiguration
         {
-            CameraFPS = FPS.FPS30,
-            ColorFormat = ImageFormat.ColorBGRA32,
+            // CameraFPS = FPS.FPS30,
+            // ColorFormat = ImageFormat.ColorBGRA32,
+            ColorFormat = ImageFormat.ColorBgra32,
             ColorResolution = ColorResolution.R1080p
         };
 
@@ -78,14 +80,20 @@ public partial class MainWindow : Window
     private unsafe void _timerTick(object? sender, EventArgs e)
     {
         using var capture = _device.GetCapture();
-        using var image = capture.Color;
+        // using var image = capture.Color;
+        using var image = capture.ColorImage;
+        if (image == null) {
+            return;
+        }
 
         var rect = new Int32Rect(0, 0, image.WidthPixels, image.HeightPixels);
 
-        using var memoryHandle = image.Memory.Pin();
-        var buffer = new IntPtr(memoryHandle.Pointer);
+        // using var memoryHandle = image.Memory.Pin();
+        // var buffer = new IntPtr(memoryHandle.Pointer);
+        var buffer = image.Buffer;
 
-        _dataSource.CaptureImage?.WritePixels(rect, buffer, (int)image.Size, image.StrideBytes);
+        // _dataSource.CaptureImage?.WritePixels(rect, buffer, (int)image.Size, image.StrideBytes);
+        _dataSource.CaptureImage?.WritePixels(rect, buffer, image.SizeBytes, image.StrideBytes);
         _dataSource.Timestamp = image.DeviceTimestamp.ToString();
     }
 }
