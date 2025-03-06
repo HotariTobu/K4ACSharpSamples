@@ -18,6 +18,7 @@ using (var device = Device.Open())
     var deviceConfig = new DeviceConfiguration
     {
         // CameraFPS = FPS.FPS30,
+        CameraFps = FrameRate.Thirty,
         // ColorFormat = ImageFormat.ColorBGRA32,
         DepthMode = DepthMode.PassiveIR,
         ColorResolution = ColorResolution.Off

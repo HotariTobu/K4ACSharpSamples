@@ -47,6 +47,7 @@ public partial class MainWindow : Window
         _deviceConfig = new DeviceConfiguration
         {
             // CameraFPS = FPS.FPS30,
+            CameraFps = FrameRate.Thirty,
             // ColorFormat = ImageFormat.ColorBGRA32,
             ColorFormat = ImageFormat.ColorBgra32,
             ColorResolution = ColorResolution.R1080p

@@ -20,6 +20,7 @@ using (var device = Device.Open())
     var deviceConfig = new DeviceConfiguration
     {
         // CameraFPS = FPS.FPS30,
+        CameraFps = FrameRate.Thirty,
         // DepthMode = DepthMode.NFOV_Unbinned,
         DepthMode = DepthMode.NarrowViewUnbinned,
         ColorResolution = ColorResolution.Off
